@@ -5,7 +5,7 @@ data <- read.csv(file = "Boston.csv", header = TRUE)
 str(data)
 head(data)
 set.seed(20)
-     VarName = c('indus', 'dis', 'nox',  'medv', 'lstat', 'age', 'rad') 
+     VarName = c('indus', 'dis', 'nox',  'medv', 'lstat', 'age', 'rad')
      data_train <- data[, VarName]
      data_train_matrix <- as.matrix(scale(data_train))
 
@@ -13,7 +13,7 @@ som_grid <- somgrid(xdim = 9, ydim = 6, topo = "hexagonal")
 som_model <- som(data_train_matrix, grid = som_grid, rlen = 100,
                  alpha = c(0.05,0.01), keep.data = TRUE)
 plot(som_model, type = "changes")
-# Çàäàäèì ïàëèòğó öâåòîâ
+# Ã‡Ã Ã¤Ã Ã¤Ã¨Ã¬ Ã¯Ã Ã«Ã¨Ã²Ã°Ã³ Ã¶Ã¢Ã¥Ã²Ã®Ã¢
 coolBlueHotRed <- function(n, alpha = 1) {
   rainbow(n, end = 4/6, alpha = alpha)[n:1] 
 }
@@ -42,5 +42,5 @@ som.predict <- predict(som.data, newdata = test_data)
 table(data[-train], som.predict$predictions[['Boston']])
 map(som.data)
 
-#ãğàôèê äëÿ îáó÷åííîé íåéğîííîé ñåòè
+#Ã£Ã°Ã Ã´Ã¨Ãª Ã¤Ã«Ã¿ Ã®Ã¡Ã³Ã·Ã¥Ã­Ã­Ã®Ã© Ã­Ã¥Ã©Ã°Ã®Ã­Ã­Ã®Ã© Ã±Ã¥Ã²Ã¨
 plot(som.data, main = 'Boston data Kohonen SOM')
